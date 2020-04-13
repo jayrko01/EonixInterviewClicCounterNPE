@@ -1,4 +1,5 @@
 import { INCREMENT } from './constant';
+import { DECREMENT } from './constant';
 
 export const initialState = {
   counter: 0,
@@ -11,6 +12,18 @@ export default function homeContainerReducer(state = initialState, action) {
         ...state,
         counter: state.counter + 1,
       };
+    case DECREMENT:
+      if(state.counter >0){
+        return {
+          ...state,
+          counter: state.counter - 1,
+        };
+      }else{
+        return {
+          ...state,
+          counter: 0,
+        };
+      }
     default:
       return state;
   }
